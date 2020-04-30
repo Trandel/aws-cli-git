@@ -20,7 +20,6 @@ script:
       echo "Login to dockerhub";
       docker login -u ${DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_PASSWORD};
       echo "Start building new image";
-      cd ${DOCKER_REPO};
       travis_retry docker build --build-arg AWS_CLI_VERSION="${NEW_TAG}" -t "${DOCKER_REPO}" . ;
       echo "Push new image with tags";
       docker tag ${DOCKER_REPO} "${DOCKER_HUB_USERNAME}/${DOCKER_REPO}:latest";
