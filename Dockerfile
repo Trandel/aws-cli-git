@@ -9,8 +9,8 @@ RUN apk -v --update add \
         py-pip \
         groff \
         git \
+        curl \
         ca-certificates \
-        less \
         && \
     pip install --upgrade awscli==${AWS_CLI_VERSION} python-magic && \
     apk -v --purge del py-pip && \
